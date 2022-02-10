@@ -78,7 +78,7 @@ export class EntryFormComponent implements OnInit {
       this.updateEntry();
   }
 
-  get typeOptions(): Array<any>{
+  get typeOptions(): Array<any> {
     return Object.entries(Entry.types).map(
       ([value, text]) => {
         return {
@@ -128,7 +128,7 @@ export class EntryFormComponent implements OnInit {
   }
 
 
-  private loadCategories(){
+  private loadCategories() {
     this.categoryService.getAll().subscribe(
       categories => this.categories = categories
     );
@@ -144,7 +144,7 @@ export class EntryFormComponent implements OnInit {
   }
 
   private createEntry() {
-    const entry: Entry = Object.assign(new Entry(), this.entryForm.value);
+    const entry: Entry = Entry.fromJson(this.entryForm.value)
 
     this.entryService.create(entry)
       .subscribe(
@@ -155,7 +155,7 @@ export class EntryFormComponent implements OnInit {
 
 
   private updateEntry() {
-    const entry: Entry = Object.assign(new Entry(), this.entryForm.value);
+    const entry: Entry = Entry.fromJson(this.entryForm.value)
 
     this.entryService.update(entry)
       .subscribe(
