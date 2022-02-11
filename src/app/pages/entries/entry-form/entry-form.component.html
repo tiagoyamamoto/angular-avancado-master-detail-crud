@@ -1,17 +1,8 @@
 <app-bread-crumb [items]="[{text: 'Lançamentos', link: '/entries'}, {text: pageTitle}]">
 </app-bread-crumb>
 
-<div class="row mb-4">
-  <div class="col-md-9">
-    <h1 class="h2 border-left pl-2">
-      {{ pageTitle }}
-    </h1>
-  </div>
-  <div class="col-md-3">
-    <a routerLink="/entries" class="btn btn-light float-right">
-      << Voltar </a>
-  </div>
-</div>
+<app-page-header [page-title]="pageTitle" button-text="<< Voltar" button-link="/entries" button-class="btn-light">
+</app-page-header>
 
 <form [formGroup]="resourceForm" (submit)="submitForm()">
   <div class="card">
@@ -86,9 +77,11 @@
           <label for="paid">Pago</label>
 
           <div class="btn-group">
-            <label (click)="resourceForm.get('paid').setValue(true)" [class.active]="resourceForm.get('paid').value == true" class="btn btn-outline-info">Pago</label>
+            <label (click)="resourceForm.get('paid').setValue(true)"
+              [class.active]="resourceForm.get('paid').value == true" class="btn btn-outline-info">Pago</label>
 
-            <label (click)="resourceForm.get('paid').setValue(false)" [class.active]="resourceForm.get('paid').value == false" class="btn btn-outline-info">Pendente</label>
+            <label (click)="resourceForm.get('paid').setValue(false)"
+              [class.active]="resourceForm.get('paid').value == false" class="btn btn-outline-info">Pendente</label>
           </div>
 
           <div class="text-danger" *ngIf="resourceForm.get('paid').invalid && resourceForm.get('paid').touched">
@@ -105,7 +98,8 @@
             <option value="2">Categoria 2</option>
           </select>
 
-          <div class="text-danger" *ngIf="resourceForm.get('categoryId').invalid && resourceForm.get('categoryId').touched">
+          <div class="text-danger"
+            *ngIf="resourceForm.get('categoryId').invalid && resourceForm.get('categoryId').touched">
             <div *ngIf="resourceForm.get('categoryId').errors.required">dado obrigatório</div>
           </div>
         </div>
