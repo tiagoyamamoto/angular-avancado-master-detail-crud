@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 interface BreadCrumbItem {
   text: string;
@@ -12,7 +12,7 @@ interface BreadCrumbItem {
 })
 export class BreadCrumbComponent implements OnInit {
 
-  @Input() items: Array<BreadCrumbItem> = []
+  @Input() items: Array<BreadCrumbItem> = [];
 
   constructor() { }
 
