@@ -55,9 +55,6 @@ page-title="Relatório de Receitas e Despesas" [show-button]="false"
 </div>
 
 
-
-
-
 <div class="card-deck mt-5 mb-5">
   <div class="card text-center text-white bg-success">
     <div class="card-header">
@@ -65,7 +62,7 @@ page-title="Relatório de Receitas e Despesas" [show-button]="false"
     </div>
     <div class="card-body">
       <h3 class="card-title">
-        1500
+        {{revenueTotal}}
       </h3>
     </div>
   </div>
@@ -76,7 +73,7 @@ page-title="Relatório de Receitas e Despesas" [show-button]="false"
     </div>
     <div class="card-body">
       <h3 class="card-title">
-        500
+        {{expenseTotal}}
       </h3>
     </div>
   </div>
@@ -87,7 +84,7 @@ page-title="Relatório de Receitas e Despesas" [show-button]="false"
     </div>
     <div class="card-body">
       <h3 class="card-title">
-        1000
+        {{balance}}
       </h3>
     </div>
   </div>
@@ -97,10 +94,10 @@ page-title="Relatório de Receitas e Despesas" [show-button]="false"
 <hr>
 <div class="row mt-5 mb-4">
   <div class="col-md-6">
-    GRÁFICO DE RECEITA
+    <p-chart type="bar" [data]="revenueChartData" [options]="chartOptions"></p-chart>
   </div>
 
   <div class="col-md-6">
-    GRÁFICO DE DESPESA
+    <p-chart type="bar" [data]="expenseChartData" [options]="chartOptions"></p-chart>
   </div>
 </div>
